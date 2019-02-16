@@ -1,5 +1,5 @@
 resource "aws_ebs_volume" "minecraft_backup_volume" {
-  availability_zone = "us-east-2"
+  availability_zone = "${var.region}"
   size = 4
 
   tags {
