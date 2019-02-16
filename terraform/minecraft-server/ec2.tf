@@ -1,5 +1,5 @@
 resource "aws_instance" "minecraft_server" {
-  ami = "0ec1948d5caef658a"
+  ami = "ami-9f388eec"
   instance_type = "m5.large"
   availability_zone = "us-east-2"
   security_groups = ["${aws_security_group.minecraft_security_group.id}"]
