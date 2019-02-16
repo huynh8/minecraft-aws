@@ -1,0 +1,23 @@
+- name: Create directory
+  file:
+    path: "/dev/sdh/opt/minecraft/{{ server_name }}"
+    state: directory
+    owner: minecraft
+    group: minecraft
+
+- name: Copy minecraft systemd service
+  copy:
+    src: /dev/sdh/opt/minecraft/bin/minecraft_server.jar
+    dest: "/opt/minecraft/{{ server_name }}"
+    owner: minecraft
+    group: minecraft
+
+- name: Stop minecraft
+  service:
+    name: "minecraft@{{ server_name }}"
+    state: stopped
+
+- name: Start minecraft
+  service:
+    name: "minecraft@{{ server_name }}"
+    state: started

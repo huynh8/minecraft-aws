@@ -1,0 +1,4 @@
+- hosts: server
+  any_errors_fatal: true
+  tasks:
+    - import_tasks: "{{ playbook_dir }}/tasks/install-minecraft.yml"
